@@ -12,15 +12,17 @@ export function Hero() {
   const handleResumeDownload = () => {
     setIsDownloading(true);
     
-    // Simulate holographic scan and download delay
+    // Trigger download synchronously to bypass strict browser popup/download blockers
+    const link = document.createElement('a');
+    link.href = '/resume/ramya_resume.pdf';
+    link.download = 'Ramya_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Simulate holographic scan duration
     setTimeout(() => {
       setIsDownloading(false);
-      const link = document.createElement('a');
-      link.href = '/resume/ramya_resume.pdf';
-      link.download = 'Ramya_Resume.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
     }, 2500);
   };
 
