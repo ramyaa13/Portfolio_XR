@@ -17,7 +17,7 @@ export interface VectorDocument {
 }
 
 function getLocalStorePath() {
-  return path.join(process.cwd(), 'data', 'embeddings', 'store.json');
+  return path.join(process.cwd(), 'public', 'data', 'embeddings', 'store.json');
 }
 
 function readLocalStore(): VectorDocument[] {
